@@ -13,7 +13,7 @@ interface Orders {
 
 const Orders: React.FC = () => {
   const [orders, setOrders] = useState<CartSneaker[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);

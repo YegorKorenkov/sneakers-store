@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useState } from 'react';
 import { Route } from 'react-router-dom';
 import ApiService from './api/ApiService';
@@ -22,13 +22,13 @@ export interface CartSneaker extends Sneaker {
   itemId?: string;
 }
 
-function App() {
+const App: FC = () => {
   const [items, setItems] = useState<Sneaker[]>([]);
   const [cartItems, setCartItems] = useState<CartSneaker[]>([]);
-  const [searchValue, setSearchValue] = useState<string>('');
-  const [isCartOpened, setIsCartOpened] = useState<boolean>(false);
+  const [searchValue, setSearchValue] = useState('');
+  const [isCartOpened, setIsCartOpened] = useState(false);
   const [favorites, setFavorites] = useState<CartSneaker[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -154,6 +154,6 @@ function App() {
       </div>
     </AppContext.Provider>
   );
-}
+};
 
 export default App;
